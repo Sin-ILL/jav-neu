@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jugend- und Auszubildendenvertretung (JAV) einfach erklärt</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --panel:#ffffff;
+      --ink:#172033;
+      --muted:#667085;
+      --line:#dde3ec;
+      --blue:#246bfe;
+      --blue-dark:#1647b6;
+      --blue-soft:#edf4ff;
+      --cyan:#e7f8fb;
+      --green:#eaf8f0;
+      --orange:#fff6e8;
+      --shadow:0 18px 45px rgba(23,32,51,.09);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#eef5ff 0,#f8fafc 390px);color:var(--ink);line-height:1.6}
+    a{color:inherit}
+    header{position:relative;overflow:hidden;background:linear-gradient(135deg,#12233f 0,#1f5dc8 62%,#47c2d1 100%);color:white}
+    header::after{content:"";position:absolute;right:-160px;top:-150px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.12)}
+    .hero{max-width:1180px;margin:auto;padding:54px 22px 42px;position:relative;z-index:1}
+    .kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.11);padding:8px 12px;border-radius:999px;font-size:.85rem;letter-spacing:.03em}
+    h1{font-size:clamp(2rem,5vw,4rem);line-height:1.04;margin:18px 0 14px;letter-spacing:-.045em;max-width:940px}
+    .lead{font-size:clamp(1.02rem,2vw,1.22rem);max-width:850px;color:#e6eefc;margin:0}
+    .quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1180px;margin:-24px auto 0;padding:0 22px;position:relative;z-index:2}
+    .quick-card{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .quick-card strong{display:block;font-size:1rem;margin-bottom:5px}.quick-card span{color:var(--muted);font-size:.94rem}
+    .layout{max-width:1180px;margin:24px auto 70px;padding:0 22px;display:grid;grid-template-columns:288px minmax(0,1fr);gap:24px}
+    aside{position:sticky;top:18px;align-self:start;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .search-wrap{padding:16px;border-bottom:1px solid var(--line)}
+    .search{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 13px;font-size:.96rem;color:var(--ink);background:#fff}
+    nav{padding:10px;max-height:68vh;overflow:auto}
+    nav a{display:flex;gap:10px;text-decoration:none;padding:10px 11px;border-radius:12px;color:#24324a;font-size:.94rem;align-items:flex-start}
+    nav a:hover,nav a.active{background:var(--blue-soft);color:var(--blue-dark)}
+    nav b{min-width:22px;color:var(--blue)}
+    main{min-width:0}.section{scroll-margin-top:22px;margin:22px 0}.section-head{margin-bottom:12px}.eyebrow{font-size:.8rem;color:var(--blue-dark);text-transform:uppercase;letter-spacing:.08em;font-weight:760}.section h2{font-size:clamp(1.55rem,3vw,2.1rem);line-height:1.18;margin:.25rem 0 .35rem;letter-spacing:-.025em}.section-intro{color:#4e5f74;margin:0;max-width:850px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card,.wide-card,.fact,.quiz{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card{padding:20px}.card h3,.wide-card h3{margin:0 0 8px;font-size:1.16rem}.card p,.wide-card p{margin:.35rem 0;color:#35475b}.card ul,.wide-card ul{margin:.55rem 0 0 1.2rem;padding:0;color:#35475b}.card li{margin:.25rem 0}
+    .wide-card{padding:22px;margin:14px 0}.note{border-left:4px solid var(--blue);background:var(--blue-soft);padding:13px 14px;border-radius:14px;margin:14px 0;color:#254260}.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.pill{font-size:.85rem;border:1px solid #c9ddff;background:#f6faff;color:#214b91;border-radius:999px;padding:6px 10px}.soft-green{background:var(--green)}.soft-orange{background:var(--orange)}.soft-cyan{background:var(--cyan)}
+    details{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:10px 0;overflow:hidden}summary{cursor:pointer;padding:15px 17px;font-weight:720;color:#21344d;list-style:none}summary::-webkit-details-marker{display:none}summary::after{content:"+";float:right;color:var(--blue);font-weight:800}details[open] summary::after{content:"–"}.details-body{padding:0 17px 16px;color:#35475b}.details-body p{margin:.25rem 0 .8rem}
+    .process{counter-reset:step;display:grid;gap:12px}.step{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px}.step::before{counter-increment:step;content:counter(step);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:white;font-weight:800}.step strong{display:block}.step span{color:#4e5f74}
+    .comparison{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare-box{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}.compare-box h3{margin:0 0 8px}.example{background:#fbfdff;border:1px dashed #b9c7d8;border-radius:16px;padding:16px;margin-top:12px;color:#33465e}
+    .fact{padding:18px;border-color:#c7e8ee;background:linear-gradient(135deg,#ffffff 0,#eefcff 100%)}.fact strong{display:block;color:#0e6070;margin-bottom:6px}
+    .quiz{padding:20px}.quiz h3{margin-top:0}.q{border-top:1px solid var(--line);padding:14px 0}.q:first-of-type{border-top:0}.q button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;margin:5px 5px 0 0;cursor:pointer}.q button:hover{background:var(--blue-soft);border-color:#bcd4ff}.answer{display:none;margin-top:10px;color:#34495f;background:#f7fafc;border-radius:12px;padding:10px}.answer.show{display:block}
+    .law-ref{font-size:.9rem;color:#53657a;background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:13px;margin-top:12px}.hidden{display:none!important}.footer{color:var(--muted);font-size:.88rem;margin-top:28px}
+    @media(max-width:900px){.quick{grid-template-columns:1fr}.layout{display:block}aside{position:relative;top:auto;margin-bottom:20px}nav{max-height:260px}.grid,.comparison{grid-template-columns:1fr}.hero{padding-top:40px}}
+    @media print{header,.quick,aside,.quiz{display:none}.layout{display:block;max-width:none}.card,.wide-card,details,.fact{box-shadow:none;break-inside:avoid}body{background:white}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="hero">
+    <div class="kicker">📌 Interessenvertretung im Betrieb</div>
+    <h1>Jugend- und Auszubildendenvertretung verständlich erklärt</h1>
+    <p class="lead">Die Jugend- und Auszubildendenvertretung, kurz JAV, bündelt besondere Anliegen von Jugendlichen und Auszubildenden im Betrieb und arbeitet dabei eng mit dem Betriebsrat zusammen.</p>
+  </div>
+</header>
+
+<section class="quick" aria-label="Kurzübersicht">
+  <div class="quick-card"><strong>Für wen?</strong><span>Jugendliche Beschäftigte und Auszubildende im Betrieb.</span></div>
+  <div class="quick-card"><strong>Wofür?</strong><span>Anliegen aufnehmen, Interessen vertreten, Schutzvorschriften im Blick behalten.</span></div>
+  <div class="quick-card"><strong>Mit wem?</strong><span>Die JAV arbeitet nicht isoliert, sondern über und mit dem Betriebsrat.</span></div>
+</section>
+
+<div class="layout">
+  <aside aria-label="Navigation">
+    <div class="search-wrap"><input id="search" class="search" type="search" placeholder="Begriff suchen …" aria-label="Seite durchsuchen"></div>
+    <nav id="nav">
+      <a href="#grundlagen"><b>1</b><span>Grundlagen der JAV</span></a>
+      <a href="#aufgaben"><b>2</b><span>Aufgaben der JAV</span></a>
+      <a href="#rechte"><b>3</b><span>Rechte und Grenzen</span></a>
+      <a href="#betriebsrat"><b>4</b><span>Zusammenarbeit mit dem Betriebsrat</span></a>
+      <a href="#voraussetzungen"><b>5</b><span>Voraussetzungen</span></a>
+      <a href="#wahl"><b>6</b><span>JAV-Wahl</span></a>
+      <a href="#bedeutung"><b>7</b><span>Bedeutung der JAV</span></a>
+      <a href="#gesetz"><b>8</b><span>Gesetzliche Verankerung</span></a>
+      <a href="#check"><b>✓</b><span>Wissenscheck</span></a>
+    </nav>
+  </aside>
+
+  <main id="content">
+    <section class="section" id="grundlagen" data-search="grundlagen bedeutung abkürzung jav jugend ausbildungsvertretung zielgruppe jugendliche auszubildende altersgrenzen">
+      <div class="section-head"><div class="eyebrow">Grundlagen</div><h2>Was ist die JAV?</h2><p class="section-intro">JAV steht für Jugend- und Auszubildendenvertretung. Sie ist eine Interessenvertretung für junge Beschäftigte und Auszubildende in Betrieben, in denen die gesetzlichen Voraussetzungen erfüllt sind.</p></div>
+      <div class="grid">
+        <div class="card"><h3>Einfache Definition</h3><p>Die JAV kümmert sich um besondere Anliegen von Jugendlichen und Auszubildenden. Sie ist Ansprechstelle, sammelt Themen aus der Ausbildung und bringt diese in die betriebliche Interessenvertretung ein.</p></div>
+        <div class="card"><h3>Zielgruppe</h3><ul><li>jugendliche Arbeitnehmerinnen und Arbeitnehmer, die das 18. Lebensjahr noch nicht vollendet haben,</li><li>Beschäftigte, die sich in einer Berufsausbildung befinden,</li><li>je nach Frage auch Personen in vergleichbaren Ausbildungs- oder Qualifizierungsverhältnissen.</li></ul></div>
+      </div>
+      <div class="wide-card soft-cyan"><h3>Warum gibt es eine eigene Vertretung?</h3><p>Auszubildende befinden sich in einer besonderen Situation: Sie lernen einen Beruf, sind häufig neu im Betrieb und sind stärker von Ausbildungsqualität, Anleitung, Prüfungsvorbereitung und Schutzvorschriften abhängig. Ihre Interessen decken sich nicht immer vollständig mit denen anderer Beschäftigter.</p><div class="pill-row"><span class="pill">Ausbildungsqualität</span><span class="pill">Schutzvorschriften</span><span class="pill">Ansprechbarkeit</span><span class="pill">Mitwirkung</span></div></div>
+      <details><summary>Altersgrenzen knapp erklärt</summary><div class="details-body"><p>Bei der JAV wird grob zwischen Jugendlichen unter 18 Jahren und Personen in Berufsausbildung unterschieden. Für die Wählbarkeit gelten weitere Alters- und Statusregeln. Die genauen Voraussetzungen sollten bei einer echten Wahl immer anhand des Betriebsverfassungsgesetzes geprüft werden.</p></div></details>
+    </section>
+
+    <section class="section" id="aufgaben" data-search="aufgaben interessenvertretung anliegen fragen beschwerden vorschläge anregungen ausbildungsqualität arbeitsbedingungen arbeitszeiten urlaub prüfungsvorbereitung schutzvorschriften">
+      <div class="section-head"><div class="eyebrow">Aufgaben</div><h2>Was macht die JAV?</h2><p class="section-intro">Die JAV ist keine allgemeine Beschwerdestelle für alles im Betrieb. Ihr Schwerpunkt liegt auf den besonderen Interessen junger Beschäftigter und Auszubildender.</p></div>
+      <div class="grid">
+        <div class="card"><h3>Anliegen aufnehmen</h3><p>Die JAV kann Fragen, Anregungen und Beschwerden aus dem Kreis der Jugendlichen und Auszubildenden aufnehmen. Dazu können Probleme in der Ausbildung, unklare Zuständigkeiten oder Hinweise auf ungünstige Ausbildungsbedingungen gehören.</p></div>
+        <div class="card"><h3>Vorschläge weitergeben</h3><p>Wenn Anliegen berechtigt erscheinen, kann die JAV beim Betriebsrat auf eine Bearbeitung hinwirken. Sie kann Themen anstoßen, nachfragen und über den Stand informieren.</p></div>
+        <div class="card"><h3>Ausbildung im Blick behalten</h3><p>Typische Themen sind Ausbildungsqualität, Ausbildungsmittel, Ausbildungsnachweise, Prüfungsvorbereitung, Arbeitszeiten, Urlaub und die Einhaltung von Schutzvorschriften.</p></div>
+        <div class="card"><h3>Nicht alles selbst entscheiden</h3><p>Die JAV entscheidet nicht eigenständig über betriebliche Maßnahmen. Sie bringt Anliegen ein, formuliert Interessen und arbeitet dabei mit dem Betriebsrat zusammen.</p></div>
+      </div>
+      <div class="note"><strong>Merke:</strong> Die JAV macht Azubi-Themen sichtbar. Sie ersetzt aber nicht die Zuständigkeiten des Betriebsrats oder des Arbeitgebers.</div>
+    </section>
+
+    <section class="section" id="rechte" data-search="rechte informationsrecht anhörungsrecht antragsrecht betriebsratssitzung teilnahme zusammenarbeit grenzen mitbestimmung">
+      <div class="section-head"><div class="eyebrow">Rechte und Grenzen</div><h2>Welche Möglichkeiten hat die JAV?</h2><p class="section-intro">Die Rechte der JAV dienen dazu, ihre Aufgaben erfüllen zu können. Sie sind eng mit dem Betriebsrat verbunden.</p></div>
+      <div class="grid">
+        <div class="card"><h3>Informationsrecht</h3><p>Damit die JAV ihre Aufgaben wahrnehmen kann, muss sie über relevante Angelegenheiten rechtzeitig und ausreichend informiert werden. Die Information läuft in der Regel über den Betriebsrat.</p></div>
+        <div class="card"><h3>Anhörungs- und Teilnahmerechte</h3><p>Wenn Themen Jugendliche oder Auszubildende besonders betreffen, kann die JAV an entsprechenden Beratungen teilnehmen. Dadurch kann sie ihre Perspektive einbringen.</p></div>
+        <div class="card"><h3>Antragsrecht beim Betriebsrat</h3><p>Die JAV kann beim Betriebsrat beantragen, bestimmte Angelegenheiten aufzugreifen. Das ist besonders wichtig, wenn es um Berufsbildung, Ausbildungsbedingungen oder Schutzvorschriften geht.</p></div>
+        <div class="card"><h3>Teilnahme an Betriebsratssitzungen</h3><p>Die JAV kann zu Betriebsratssitzungen Vertreter entsenden. Bei Themen, die Jugendliche oder Auszubildende besonders betreffen, bestehen weitergehende Teilnahmerechte.</p></div>
+      </div>
+      <details><summary>Grenzen der JAV</summary><div class="details-body"><p>Die JAV hat nicht dieselben Mitbestimmungsrechte wie der Betriebsrat. Sie kann Themen einbringen, beraten, beantragen und vertreten. Entscheidungen gegenüber dem Arbeitgeber laufen jedoch regelmäßig über den Betriebsrat oder die dafür zuständigen Stellen.</p></div></details>
+      <div class="law-ref">Rechtliche Grundlage: insbesondere §§ 60, 67, 68 und 70 Betriebsverfassungsgesetz.</div>
+    </section>
+
+    <section class="section" id="betriebsrat" data-search="betriebsrat zusammenarbeit ergänzung konkurrenz arbeitgeber vertretung alle beschäftigten jav auszubildende beispiel">
+      <div class="section-head"><div class="eyebrow">Zusammenarbeit</div><h2>JAV und Betriebsrat</h2><p class="section-intro">Die JAV ist keine Konkurrenz zum Betriebsrat. Sie ergänzt ihn, weil sie die besondere Sicht von Jugendlichen und Auszubildenden einbringt.</p></div>
+      <div class="comparison">
+        <div class="compare-box"><h3>Betriebsrat</h3><p>Der Betriebsrat vertritt grundsätzlich die Interessen der Beschäftigten im Betrieb. Er hat in bestimmten Angelegenheiten Beteiligungs- und Mitbestimmungsrechte gegenüber dem Arbeitgeber.</p></div>
+        <div class="compare-box"><h3>JAV</h3><p>Die JAV vertritt speziell die besonderen Belange von Jugendlichen und Auszubildenden. Sie bringt diese Themen beim Betriebsrat ein und arbeitet mit ihm zusammen.</p></div>
+      </div>
+      <div class="example"><strong>Einfaches Beispiel:</strong> Mehrere Auszubildende melden zurück, dass sie für die Prüfungsvorbereitung kaum planbare Zeitfenster haben. Die JAV kann das Anliegen sammeln, strukturieren und beim Betriebsrat anregen, das Thema mit dem Arbeitgeber zu besprechen.</div>
+      <details><summary>Warum läuft vieles über den Betriebsrat?</summary><div class="details-body"><p>Der Betriebsrat ist das zentrale betriebliche Vertretungsorgan gegenüber dem Arbeitgeber. Die JAV bringt ihre besonderen Themen dort ein. Dadurch werden Anliegen der Auszubildenden nicht isoliert behandelt, sondern in die betriebliche Interessenvertretung eingebunden.</p></div></details>
+    </section>
+
+    <section class="section" id="voraussetzungen" data-search="voraussetzungen jav betriebsrat mindestens fünf wahlberechtigte personen wahlberechtigt wählbar">
+      <div class="section-head"><div class="eyebrow">Voraussetzungen</div><h2>Wann kann eine JAV gewählt werden?</h2><p class="section-intro">Eine JAV entsteht nicht automatisch in jedem Betrieb. Bestimmte gesetzliche Voraussetzungen müssen vorliegen.</p></div>
+      <div class="grid">
+        <div class="card"><h3>Betriebsrat erforderlich</h3><p>Eine JAV kann nur dort gewählt werden, wo es einen Betriebsrat gibt. Ohne Betriebsrat gibt es im Betrieb keine eigenständige JAV nach dem Betriebsverfassungsgesetz.</p></div>
+        <div class="card"><h3>Mindestzahl</h3><p>Im Betrieb müssen in der Regel mindestens fünf wahlberechtigte Personen vorhanden sein. Gemeint sind insbesondere Jugendliche unter 18 Jahren oder Personen, die zur Berufsausbildung beschäftigt sind.</p></div>
+        <div class="card"><h3>Wer darf wählen?</h3><p>Wahlberechtigt sind die Personen, deren besondere Interessen die JAV vertreten soll. Dazu gehören grob Jugendliche unter 18 Jahren und Beschäftigte in Berufsausbildung.</p></div>
+        <div class="card"><h3>Wer darf kandidieren?</h3><p>Wählbar sind Beschäftigte des Betriebs, die die gesetzlichen Voraussetzungen erfüllen. Dazu zählen insbesondere jüngere Beschäftigte und Auszubildende. Mitglieder des Betriebsrats können nicht gleichzeitig JAV-Mitglieder sein.</p></div>
+      </div>
+      <div class="note"><strong>Hinweis:</strong> Die genaue Prüfung von Wahlberechtigung und Wählbarkeit hängt vom konkreten Betrieb und vom Zeitpunkt der Wahl ab.</div>
+    </section>
+
+    <section class="section" id="wahl" data-search="wahl jav wählt kandidieren wahlzeitraum oktober november amtszeit zwei jahre wahlvorstand ablauf neuwahl voraussetzungen wahlberechtigung wählbarkeit">
+      <div class="section-head">
+        <div class="eyebrow">JAV-Wahl</div>
+        <h2>Wie wird die JAV gewählt?</h2>
+        <p class="section-intro">Die JAV wird durch eine betriebliche Wahl bestimmt. Dabei ist wichtig, wer wählen darf, wer kandidieren kann und welche Voraussetzungen im Betrieb erfüllt sein müssen.</p>
+      </div>
+
+      <div class="wide-card">
+        <h3>Wann kann eine JAV gewählt werden?</h3>
+        <p>Eine Jugend- und Auszubildendenvertretung entsteht nicht automatisch in jedem Betrieb. Eine JAV kommt grundsätzlich nur in Betracht, wenn im Betrieb bereits ein Betriebsrat besteht. Außerdem müssen im Betrieb mindestens fünf wahlberechtigte Jugendliche oder Auszubildende beschäftigt sein.</p>
+        <p>Wahlberechtigt sind dabei nicht beliebige junge Menschen, sondern Personen, die dem Betrieb angehören. Gemeint sind also Personen, die dort tatsächlich beschäftigt oder zur Berufsausbildung eingestellt sind. Eine JAV ist damit immer an einen konkreten Betrieb gebunden.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Wer darf die JAV wählen?</h3>
+          <p>Wahlberechtigt sind grundsätzlich jugendliche Arbeitnehmerinnen und Arbeitnehmer unter 18 Jahren sowie Auszubildende, die das 25. Lebensjahr noch nicht vollendet haben.</p>
+          <p>Entscheidend ist nicht nur das Alter, sondern auch die Zugehörigkeit zum Betrieb. Wer nicht in diesem Betrieb beschäftigt oder ausgebildet wird, nimmt an der Wahl nicht teil.</p>
+        </div>
+
+        <div class="card">
+          <h3>Wer kann kandidieren?</h3>
+          <p>Für die JAV kandidieren können grundsätzlich Beschäftigte des Betriebs, die das 25. Lebensjahr noch nicht vollendet haben oder zu ihrer Berufsausbildung beschäftigt sind.</p>
+          <p>Mitglied der JAV kann also nur werden, wer selbst zum Betrieb gehört. Außerdem können Mitglieder des Betriebsrats nicht gleichzeitig Mitglied der JAV sein.</p>
+        </div>
+      </div>
+
+      <div class="wide-card soft-orange">
+        <h3>Wahlzeitraum und Amtszeit</h3>
+        <p>Die JAV wird regelmäßig alle zwei Jahre gewählt. Die regelmäßigen Wahlen finden im Zeitraum vom 1. Oktober bis 30. November statt.</p>
+        <p>Die Amtszeit beträgt in der Regel zwei Jahre. Danach wird eine neue JAV gewählt. In besonderen Fällen kann auch außerhalb des regelmäßigen Wahlzeitraums eine Wahl erforderlich werden.</p>
+      </div>
+
+      <details>
+        <summary>Grundlegende Schritte der JAV-Wahl anzeigen</summary>
+        <div class="details-body">
+          <div class="process">
+            <div class="step"><div><strong>Voraussetzungen prüfen</strong><span>Zunächst wird geprüft, ob ein Betriebsrat besteht und ob genügend wahlberechtigte Jugendliche oder Auszubildende im Betrieb beschäftigt sind.</span></div></div>
+            <div class="step"><div><strong>Wahlvorstand einsetzen</strong><span>Der Wahlvorstand bereitet die Wahl organisatorisch vor und achtet auf einen ordnungsgemäßen Ablauf.</span></div></div>
+            <div class="step"><div><strong>Wahlberechtigung und Wählbarkeit feststellen</strong><span>Es wird geklärt, wer wählen darf und wer für eine Kandidatur in Betracht kommt.</span></div></div>
+            <div class="step"><div><strong>Kandidaturen ermöglichen</strong><span>Wählbare Personen können vorgeschlagen werden oder sich zur Wahl stellen.</span></div></div>
+            <div class="step"><div><strong>Wahl durchführen</strong><span>Die Stimmabgabe erfolgt nach festen Regeln. Wichtig sind unter anderem Geheimhaltung, Gleichbehandlung und ein geordneter Ablauf.</span></div></div>
+            <div class="step"><div><strong>Stimmen auszählen und Ergebnis bekannt geben</strong><span>Nach der Auszählung wird festgestellt, wer gewählt wurde. Anschließend beginnt die Amtszeit nach den gesetzlichen Regeln.</span></div></div>
+          </div>
+        </div>
+      </details>
+
+      <div class="note"><strong>Merke:</strong> Die JAV-Wahl entscheidet darüber, wer die besonderen Interessen der Jugendlichen und Auszubildenden im Betrieb vertreten darf. Sie ist damit die Grundlage für eine eigene gewählte Interessenvertretung dieser Gruppe.</div>
+    </section>
+
+    <section class="section" id="bedeutung" data-search="warum wichtig bedeutung ansprechpartner azubi themen hemmmschwelle verbindung ausbildung mitbestimmung fair">
+      <div class="section-head"><div class="eyebrow">Bedeutung</div><h2>Warum ist die JAV wichtig?</h2><p class="section-intro">Die JAV kann dazu beitragen, dass ausbildungsbezogene Themen im Betrieb nicht untergehen.</p></div>
+      <div class="grid">
+        <div class="card"><h3>Niedrigere Hemmschwelle</h3><p>Auszubildende sprechen Anliegen oft leichter bei Personen an, die ihre Ausbildungssituation kennen und ähnliche Erfahrungen machen.</p></div>
+        <div class="card"><h3>Azubi-Themen sichtbar machen</h3><p>Prüfungsdruck, Ausbildungsinhalte, Anleitung, Einsatzbereiche oder Schutzvorschriften betreffen Auszubildende häufig anders als andere Beschäftigte.</p></div>
+        <div class="card"><h3>Verbindung herstellen</h3><p>Die JAV verbindet Auszubildende, Betriebsrat und betriebliche Entscheidungswege. Dadurch können Anliegen sachlich weitergegeben werden.</p></div>
+        <div class="card"><h3>Mitbestimmung stärken</h3><p>Die JAV fördert Beteiligung und Verantwortungsübernahme im Betrieb. Sie ist ein Baustein fairer Ausbildung und betrieblicher Demokratie.</p></div>
+      </div>
+      <div class="fact"><strong>Schon gewusst?</strong> Die JAV ist nicht nur bei Konflikten relevant. Sie kann auch Vorschläge sammeln, Verbesserungen anstoßen und dazu beitragen, dass Ausbildungsbedingungen regelmäßig überprüft werden.</div>
+    </section>
+
+    <section class="section" id="gesetz" data-search="gesetzliche verankerung jav betriebsverfassungsgesetz betrv g paragrafen 60 61 62 63 64 65 67 68 70">
+      <div class="section-head">
+        <div class="eyebrow">Gesetzliche Verankerung</div>
+        <h2>Wo ist die JAV gesetzlich geregelt?</h2>
+        <p class="section-intro">Die Jugend- und Auszubildendenvertretung ist im Betriebsverfassungsgesetz geregelt. Die folgenden Vorschriften sind für eine erste Orientierung besonders wichtig.</p>
+      </div>
+
+      <details>
+        <summary>§ 60 BetrVG – Errichtung und Aufgaben der JAV</summary>
+        <div class="details-body">
+          <p>Diese Vorschrift regelt, wann eine JAV gebildet werden kann und welche Grundaufgabe sie hat. Wichtig ist hier vor allem die Mindestzahl von wahlberechtigten Jugendlichen oder Auszubildenden.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 61 BetrVG – Wahlberechtigung und Wählbarkeit</summary>
+        <div class="details-body">
+          <p>Hier wird geregelt, wer die JAV wählen darf und wer selbst für die JAV kandidieren kann. Dabei spielen insbesondere Alter, Ausbildung und Betriebszugehörigkeit eine Rolle.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 62 BetrVG – Zahl der JAV-Mitglieder</summary>
+        <div class="details-body">
+          <p>Diese Vorschrift legt fest, wie viele Mitglieder die JAV hat. Die Größe hängt davon ab, wie viele wahlberechtigte Jugendliche und Auszubildende im Betrieb vorhanden sind.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 63 BetrVG – Wahlvorschriften</summary>
+        <div class="details-body">
+          <p>§ 63 BetrVG enthält grundlegende Regeln zur Durchführung der Wahl. Dazu gehören Vorgaben zum Wahlverfahren und zur Organisation der JAV-Wahl.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 64 BetrVG – Zeitpunkt der Wahl und Amtszeit</summary>
+        <div class="details-body">
+          <p>Diese Vorschrift regelt, wann die regelmäßigen JAV-Wahlen stattfinden und wie lange die Amtszeit der JAV grundsätzlich dauert.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 65 BetrVG – Geschäftsführung der JAV</summary>
+        <div class="details-body">
+          <p>Hier geht es um die interne Arbeit der JAV, also um Fragen der Organisation und Geschäftsführung nach der Wahl.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 67 BetrVG – Teilnahme an Betriebsratssitzungen</summary>
+        <div class="details-body">
+          <p>Diese Vorschrift regelt, wann Vertreterinnen und Vertreter der JAV an Sitzungen des Betriebsrats teilnehmen können oder müssen, insbesondere wenn Themen Jugendliche oder Auszubildende betreffen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 68 BetrVG – Teilnahme an gemeinsamen Besprechungen</summary>
+        <div class="details-body">
+          <p>§ 68 BetrVG betrifft die Beteiligung der JAV an bestimmten gemeinsamen Besprechungen zwischen Arbeitgeber und Betriebsrat, wenn Angelegenheiten der Jugendlichen oder Auszubildenden betroffen sind.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>§ 70 BetrVG – Allgemeine Aufgaben der JAV</summary>
+        <div class="details-body">
+          <p>Diese Vorschrift beschreibt zentrale Aufgaben der JAV. Dazu gehört insbesondere, Maßnahmen zugunsten Jugendlicher und Auszubildender beim Betriebsrat zu beantragen und auf die Einhaltung geltender Vorschriften zu achten.</p>
+        </div>
+      </details>
+
+      <div class="law-ref">Hinweis: Je nach Fragestellung können weitere Vorschriften des Betriebsverfassungsgesetzes oder anderer Gesetze relevant sein. Maßgeblich ist im Einzelfall der aktuelle Gesetzestext.</div>
+    </section>
+
+    <section class="section" id="check" data-search="wissenscheck quiz fragen jav betriebsrat wahl rechte">
+      <div class="quiz">
+        <h2>Kurzer Wissenscheck</h2>
+        <p class="section-intro">Die Fragen dienen zur Orientierung. Sie ersetzen keine genaue Prüfung des Gesetzestextes.</p>
+        <div class="q"><strong>1. Vertritt die JAV alle Beschäftigten im Betrieb?</strong><br><button data-answer="a1">Antwort anzeigen</button><div class="answer" id="a1">Nein. Der Betriebsrat vertritt grundsätzlich alle Beschäftigten. Die JAV vertritt speziell die besonderen Belange von Jugendlichen und Auszubildenden.</div></div>
+        <div class="q"><strong>2. Kann eine JAV ohne Betriebsrat gewählt werden?</strong><br><button data-answer="a2">Antwort anzeigen</button><div class="answer" id="a2">Nein. Eine JAV setzt voraus, dass im Betrieb ein Betriebsrat besteht.</div></div>
+        <div class="q"><strong>3. Entscheidet die JAV allein über betriebliche Maßnahmen?</strong><br><button data-answer="a3">Antwort anzeigen</button><div class="answer" id="a3">Nein. Die JAV kann Anliegen einbringen, beantragen und vertreten. Viele Schritte laufen über den Betriebsrat.</div></div>
+      </div>
+    </section>
+
+    <p class="footer">Neutrale Informationsseite zur Jugend- und Auszubildendenvertretung. Maßgeblich sind im Einzelfall die jeweils geltenden gesetzlichen Regelungen.</p>
+  </main>
+</div>
+
+<script>
+  const search = document.getElementById('search');
+  const sections = [...document.querySelectorAll('.section')];
+  const navLinks = [...document.querySelectorAll('nav a')];
+
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    sections.forEach(sec => {
+      const hay = (sec.textContent + ' ' + (sec.dataset.search || '')).toLowerCase();
+      sec.classList.toggle('hidden', q && !hay.includes(q));
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, {rootMargin:'-35% 0px -55% 0px'});
+  sections.forEach(sec => observer.observe(sec));
+
+  document.querySelectorAll('.quiz button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const el = document.getElementById(btn.dataset.answer);
+      el.classList.toggle('show');
+      btn.textContent = el.classList.contains('show') ? 'Antwort ausblenden' : 'Antwort anzeigen';
+    });
+  });
+</script>
+</body>
+</html>
